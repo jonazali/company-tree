@@ -14,26 +14,21 @@ class App extends Component {
           name: 'Mackeever',
           report: 'No one'
         }
-      ],
-      person: {
-        name: '',
-        report: ''
-      }
+      ]
     };
   }
 
   handleAdd = (event, name, report) => {
     event.preventDefault();
-    this.setState(prevState => ({
-      person: {
-        ...prevState.person,
-        name: name,
-        report: report
-      }
-    }));
 
     this.setState(prevState => ({
-      workers: [...prevState.workers, this.state.person]
+      workers: [
+        ...prevState.workers,
+        {
+          name: name,
+          report: report
+        }
+      ]
     }));
   };
 
