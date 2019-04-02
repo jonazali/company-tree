@@ -9,7 +9,12 @@ class App extends Component {
     super(props);
 
     this.state = {
-      workers: [],
+      workers: [
+        {
+          name: 'Mackeever',
+          report: 'No one'
+        }
+      ],
       person: {
         name: '',
         report: ''
@@ -36,7 +41,7 @@ class App extends Component {
     return (
       <div className='App'>
         <Form onHandleAdd={this.handleAdd} />
-        <Tree />
+        <Tree workers={this.state.workers} />
       </div>
     );
   }
