@@ -2,13 +2,18 @@ import React from 'react';
 
 class Tree extends React.Component {
   render() {
-    const { workers } = this.props;
+    const { workers, report } = this.props;
     return (
-      <div>
-        {workers.map(worker => (
-          <ul>{worker.name}</ul>
-        ))}
-      </div>
+      <ul>
+        {workers
+          .filter(worker => worker.report === report)
+          .map(worker => (
+            <li>
+              {worker.name}
+              <Tree workers={workers} report={worker.name} />
+            </li>
+          ))}
+      </ul>
     );
   }
 }
